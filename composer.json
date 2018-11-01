@@ -19,7 +19,11 @@
     "docs": "http://docs.opencart.com/"
   },
   "config": {
-    "vendor-dir": "./upload/system/storage/vendor/"
+    "vendor-dir": "./storage/vendor/",
+    "platform": {
+      "php": "7.1"
+    },
+    "sort-packages": true
   },
   "require": {
     "cardinity/cardinity-sdk-php": "^1.0",
@@ -29,6 +33,15 @@
     "klarna/kco_rest": "^2.2",
     "php": ">=7.1.0",
     "zoujingli/wechat-php-sdk": ">=1.3.10",
-    "twig/twig": "^2.4.8"
+    "twig/twig": "^2.4.8",
+    "vlucas/phpdotenv": "^2.5",
+    "ext-mbstring": "*",
+    "ext-xml": "*"
+  },
+  "autoload": {
+    "files": [
+      "upload/system/helper/Str.php",
+      "upload/system/helper/load_environment.php"
+    ]
   }
 }
