@@ -11,8 +11,17 @@
 * Cache class
 */
 class Cache {
+
+	/**
+	 * @var \Cache\Redis|\Cache\APC|\Cache\File|\Cache\Mem|\Cache\Memcached
+	 */
 	private $adaptor;
 	
+	/**
+	 * @var string
+	 */
+	private $id;
+
 	/**
 	 * Constructor
 	 *
@@ -22,6 +31,8 @@ class Cache {
  	*/
 	public function __construct($adaptor, $expire = 3600) {
 		$class = 'Cache\\' . $adaptor;
+
+		$this->id = $adaptor;
 
 		if (class_exists($class)) {
 			$this->adaptor = new $class($expire);
@@ -60,5 +71,12 @@ class Cache {
      */
 	public function delete($key) {
 		return $this->adaptor->delete($key);
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getId(){
+		return $this->id;
 	}
 }

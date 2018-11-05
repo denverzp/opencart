@@ -92,6 +92,9 @@ if ($config->get('db_autostart')) {
 	$registry->set('db', new DB($config->get('db_engine'), $config->get('db_hostname'), $config->get('db_username'), $config->get('db_password'), $config->get('db_database'), $config->get('db_port')));
 }
 
+// Cache
+$registry->set('cache', new Cache($config->get('cache_engine'), $config->get('cache_expire')));
+
 // Session
 $session = new Session($config->get('session_engine'), $registry);
 $registry->set('session', $session);
@@ -119,9 +122,6 @@ if ($config->get('session_autostart')) {
 
 	setcookie($config->get('session_name'), $session->getId(), (ini_get('session.cookie_lifetime') ? (time() + ini_get('session.cookie_lifetime')) : 0), ini_get('session.cookie_path'), ini_get('session.cookie_domain'));
 }
-
-// Cache
-$registry->set('cache', new Cache($config->get('cache_engine'), $config->get('cache_expire')));
 
 // Url
 if ($config->get('url_autostart')) {

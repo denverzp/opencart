@@ -36,7 +36,8 @@
     "twig/twig": "^2.4.8",
     "vlucas/phpdotenv": "^2.5",
     "ext-mbstring": "*",
-    "ext-xml": "*"
+    "ext-xml": "*",
+    "ext-redis": "*"
   },
   "autoload": {
     "files": [

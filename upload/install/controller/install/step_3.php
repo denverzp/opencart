@@ -54,6 +54,16 @@ class ControllerInstallStep3 extends Controller {
 			$output .= 'define(\'DB_PORT\', env(\'DB_PORT\', \'' . addslashes($this->request->post['db_port']) . '\'));' . "\n";
 			$output .= 'define(\'DB_PREFIX\', env(\'DB_PREFIX\', \'' . addslashes($this->request->post['db_prefix']) . '\'));' . "\n\n";
 
+            $output .= '// Session' . "\n";
+            $output .= 'define(\'SESSION_ENGINE\', env(\'SESSION_ENGINE\', \'db\'));' . "\n\n";
+
+            $output .= '// Cache' . "\n";
+            $output .= 'define(\'CACHE_ADAPTER\', env(\'CACHE_ADAPTER\', \'file\'));' . "\n";
+            $output .= 'define(\'CACHE_HOSTNAME\', env(\'CACHE_HOSTNAME\', \'127.0.0.1\'));' . "\n";
+            $output .= 'define(\'CACHE_PORT\', env(\'CACHE_PORT\', 6379));' . "\n";
+            $output .= 'define(\'CACHE_EXPIRE\', env(\'CACHE_EXPIRE\', 3600));' . "\n";
+            $output .= 'define(\'CACHE_PREFIX\', env(\'CACHE_PREFIX\', \'opencart\'));' . "\n\n";
+
 			$file = fopen(DIR_OPENCART . 'config.php', 'w');
 
 			fwrite($file, $output);
@@ -106,6 +116,16 @@ class ControllerInstallStep3 extends Controller {
 			$output .= 'define(\'DB_DATABASE\', env(\'DB_DATABASE\', \'' . addslashes($this->request->post['db_database']) . '\'));' . "\n";
 			$output .= 'define(\'DB_PORT\', env(\'DB_PORT\', \'' . addslashes($this->request->post['db_port']) . '\'));' . "\n";
 			$output .= 'define(\'DB_PREFIX\', env(\'DB_PREFIX\', \'' . addslashes($this->request->post['db_prefix']) . '\'));' . "\n\n";
+
+            $output .= '// Session' . "\n";
+            $output .= 'define(\'SESSION_ENGINE\', env(\'SESSION_ENGINE\', \'db\'));' . "\n\n";
+
+            $output .= '// Cache' . "\n";
+            $output .= 'define(\'CACHE_ADAPTER\', env(\'CACHE_ADAPTER\', \'file\'));' . "\n";
+            $output .= 'define(\'CACHE_HOSTNAME\', env(\'CACHE_HOSTNAME\', \'127.0.0.1\'));' . "\n";
+            $output .= 'define(\'CACHE_PORT\', env(\'CACHE_PORT\', 6379));' . "\n";
+            $output .= 'define(\'CACHE_EXPIRE\', env(\'CACHE_EXPIRE\', 3600));' . "\n";
+            $output .= 'define(\'CACHE_PREFIX\', env(\'CACHE_PREFIX\', \'opencart\'));' . "\n\n";
 			
 			$output .= '// OpenCart API' . "\n";
 			$output .= 'define(\'OPENCART_SERVER\', \'https://www.opencart.com/\');' . "\n";
