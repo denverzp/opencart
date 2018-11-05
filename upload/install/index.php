@@ -13,9 +13,11 @@ if ((isset($_SERVER['HTTPS']) && (($_SERVER['HTTPS'] == 'on') || ($_SERVER['HTTP
 
 define('HTTP_SERVER', $protocol . $_SERVER['HTTP_HOST'] . rtrim(dirname($_SERVER['SCRIPT_NAME']), '/.\\') . '/');
 define('HTTP_OPENCART', $protocol . $_SERVER['HTTP_HOST'] . rtrim(rtrim(dirname($_SERVER['SCRIPT_NAME']), 'install'), '/.\\') . '/');
+define('HTTP_DOMAIN', $_SERVER['HTTP_HOST'] . rtrim(rtrim(dirname($_SERVER['SCRIPT_NAME']), 'install'), '/.\\'));
 
 // DIR
 define('DIR_OPENCART', str_replace('\\', '/', realpath(dirname(__FILE__) . '/../') . '/'));
+define('DIR_ROOT', DIR_OPENCART );
 define('DIR_APPLICATION', DIR_OPENCART . 'install/');
 define('DIR_SYSTEM', DIR_OPENCART . 'system/');
 define('DIR_IMAGE', DIR_OPENCART . 'image/');
@@ -29,6 +31,18 @@ define('DIR_LOGS', DIR_STORAGE . 'logs/');
 define('DIR_MODIFICATION', DIR_STORAGE . 'modification/');
 define('DIR_SESSION', DIR_STORAGE . 'session/');
 define('DIR_UPLOAD', DIR_STORAGE . 'upload/');
+
+// Session
+define('SESSION_ENGINE', 'file');
+
+// Cache
+define('CACHE_ADAPTER', 'file');
+define('CACHE_EXPIRE', 3600);
+
+// Autoloader
+if (is_file(DIR_STORAGE . 'vendor/autoload.php')) {
+    require_once(DIR_STORAGE . 'vendor/autoload.php');
+}
 
 // Startup
 require_once(DIR_SYSTEM . 'startup.php');

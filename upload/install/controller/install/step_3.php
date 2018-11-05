@@ -37,10 +37,10 @@ class ControllerInstallStep3 extends Controller {
 			$output .= 'define(\'HTTP_PROTOCOL\', env(\'HTTP_PROTOCOL\' , \'http://\'));' . "\n\n";
 
 			$output .= '// HTTP' . "\n";
-			$output .= 'define(\'HTTP_SERVER\', HTTP_PROTOCOL . env(\'HTTP_DOMAIN\' . \'/\', \'' . HTTP_OPENCART . '\'));' . "\n\n";
+			$output .= 'define(\'HTTP_SERVER\', HTTP_PROTOCOL . env(\'HTTP_DOMAIN\', \'' . HTTP_DOMAIN . '\') . \'/\');' . "\n\n";
 
 			$output .= '// HTTPS' . "\n";
-			$output .= 'define(\'HTTPS_SERVER\', HTTP_PROTOCOL . env(\'HTTP_DOMAIN\' . \'/\', \'' . HTTP_OPENCART . '\'));' . "\n\n";
+			$output .= 'define(\'HTTPS_SERVER\', HTTP_PROTOCOL . env(\'HTTP_DOMAIN\', \'' . HTTP_DOMAIN . '\') . \'/\');' . "\n\n";
 
 			$output .= '// Environment' . "\n";
 			$output .= 'define(\'ENVIRONMENT\', env(\'ENVIRONMENT\', \'production\'));' . "\n\n";
@@ -98,12 +98,12 @@ class ControllerInstallStep3 extends Controller {
 			$output .= 'define(\'HTTP_PROTOCOL\', env(\'HTTP_PROTOCOL\' , \'http://\'));' . "\n\n";
 
 			$output .= '// HTTP' . "\n";
-			$output .= 'define(\'HTTP_SERVER\', HTTP_PROTOCOL . env(\'HTTP_DOMAIN\' . \'/admin/\', \'' . HTTP_OPENCART . 'admin/\'));' . "\n";
-			$output .= 'define(\'HTTP_CATALOG\', HTTP_PROTOCOL . env(\'HTTP_DOMAIN\' . \'/\', \'' . HTTP_OPENCART . '\'));' . "\n\n";
+			$output .= 'define(\'HTTP_SERVER\', HTTP_PROTOCOL . env(\'HTTP_DOMAIN\', \'' . HTTP_DOMAIN . '\') . \'/admin/\');' . "\n";
+			$output .= 'define(\'HTTP_CATALOG\', HTTP_PROTOCOL . env(\'HTTP_DOMAIN\', \'' . HTTP_DOMAIN . '\') . \'/\');' . "\n\n";
 
 			$output .= '// HTTPS' . "\n";
-			$output .= 'define(\'HTTPS_SERVER\', HTTP_PROTOCOL . env(\'HTTP_DOMAIN\' . \'/admin/\', \'' . HTTP_OPENCART . 'admin/\'));' . "\n";
-			$output .= 'define(\'HTTPS_CATALOG\', HTTP_PROTOCOL . env(\'HTTP_DOMAIN\' . \'/\', \'' . HTTP_OPENCART . '\'));' . "\n\n";
+			$output .= 'define(\'HTTPS_SERVER\', HTTP_PROTOCOL . env(\'HTTP_DOMAIN\', \'' . HTTP_DOMAIN .'\') . \'/admin/\');' . "\n";
+			$output .= 'define(\'HTTPS_CATALOG\', HTTP_PROTOCOL . env(\'HTTP_DOMAIN\', \'' . HTTP_DOMAIN . '\') . \'/\');' . "\n\n";
 
 			$output .= '// Environment' . "\n";
 			$output .= 'define(\'ENVIRONMENT\', env(\'ENVIRONMENT\', \'production\'));' . "\n\n";
